@@ -4,6 +4,6 @@ echo "#!/usr/bin/env node" | cat - "./dist/index.js" > temp && mv temp "./dist/i
 
 cat >./dist/package.json <<!EOF
 {
-  "type": "module"
+  "type": "commonjs"
 }
 !EOF
