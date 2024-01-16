@@ -1,12 +1,13 @@
 {
   "name": "create-something",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A command to create something",
   "bin": "./dist/index.js",
   "main": "./dist/index.js",
   "scripts": {
     "start": "ts-node src/index.ts",
-    "build": "tsc && sh scripts/distify.sh"
+    "build": "tsc && sh scripts/distify.sh",
+    "prepare": "npm run build"
   },
   "type": "module",
   "keywords": [],
