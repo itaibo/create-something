@@ -9,7 +9,6 @@
     "build": "tsc && sh scripts/distify.sh",
     "prepare": "npm run build"
   },
-  "type": "module",
   "keywords": [],
   "author": "itaibo",
   "license": "MIT",

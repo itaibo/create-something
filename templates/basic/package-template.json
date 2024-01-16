@@ -9,7 +9,6 @@
     "build": "tsc && tsc-alias",
     "start": "node ./dist/src/index.js"
   },
-  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -17,6 +16,7 @@
     "@types/jest": "^29.5.11",
     "@types/node": "^20.11.0",
     "ts-jest": "^29.1.1",
+    "tsc-alias": "^1.8.8",
     "typescript": "^5.3.3"
   }
 }
