@@ -9,6 +9,7 @@
     "build": "tsc && tsc-alias",
     "start": "node ./dist/src/index.js"
   },
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
