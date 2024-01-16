@@ -1,4 +1,4 @@
-import fetch from 'node-fetch';
+import axios from 'axios';
 
 const BASE_TEMPLATE_URL = 'https://raw.githubusercontent.com/itaibo/create-something/main/templates';
 
@@ -8,10 +8,9 @@ export const getCommands = async (templateName: TemplateName): Promise<string[]>
   const url = `${BASE_TEMPLATE_URL}/${templateName}.json`;
 
   try {
-    const response = await fetch(url);
-    if (!response.ok) throw new Error(`${url}: ${response.status}`);
+    const response = await axios.get(url);
+    const commands = await response.data as string[];
 
-    const commands = await response.json() as string[];
     return commands;
   } catch (e) {
     throw e;
