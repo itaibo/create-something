@@ -9,7 +9,7 @@
     "build": "tsc && sh scripts/distify.sh",
     "prepare": "npm run build"
   },
-  "keywords": [],
+  "keywords": ["template", "typescript", "jest"],
   "author": "itaibo",
   "license": "MIT",
   "devDependencies": {
