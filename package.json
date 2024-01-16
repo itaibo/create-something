@@ -6,7 +6,7 @@
   "main": "./dist/index.js",
   "scripts": {
     "start": "ts-node src/index.ts",
-    "build": "tsc && sh scripts/add-bin.sh"
+    "build": "tsc && sh scripts/distify.sh"
   },
   "type": "module",
   "keywords": [],
