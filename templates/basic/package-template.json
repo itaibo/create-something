@@ -5,7 +5,7 @@
   "main": "./dist/src/index.js",
   "scripts": {
     "dev": "bun --watch ./src/index.ts",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "build": "tsc && tsc-alias",
     "start": "node ./dist/src/index.js"
   },

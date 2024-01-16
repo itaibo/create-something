@@ -9,7 +9,7 @@ const TEMPLATES = {
     `wget -O package.json ${BASE_TEMPLATE_URL}/basic/package-template.json`,
     `wget -O tsconfig.json ${BASE_TEMPLATE_URL}/basic/tsconfig-template.json`,
     `wget -O jest.config.js ${BASE_TEMPLATE_URL}/basic/jest.config-template.js`,
-    `wget -O .gitignore ${BASE_TEMPLATE_URL}/basic/.gitignore-template.js`,
+    `wget -O .gitignore ${BASE_TEMPLATE_URL}/basic/.gitignore-template`,
     `mkdir src && touch src/index.ts`,
     `mkdir tests && touch tests/index.test.ts`,
   ],
