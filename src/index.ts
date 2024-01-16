@@ -16,9 +16,19 @@ const main = async () => {
   console.log('Starting something new...');
   await Promise.all(asyncCommands);
 
-  // NPM install
-  console.log('Installing packages...');
-  await exec('npm i');
+  // Install packages
+  // Check if Bun is installed. If so, use Bun
+  const { stdout: bunInstalled } = await exec('which bun');
+
+  if (bunInstalled) {
+    console.log('Installing packages using Bun...');
+    await exec('bun i');
+  }
+
+  if (!bunInstalled) {
+    console.log('Installing packages...');
+    await exec('npm i');
+  }
 
   // End
   console.log('Have fun!');

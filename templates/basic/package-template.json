@@ -2,13 +2,13 @@
   "name": "something",
   "version": "0.0.0",
   "description": "",
-  "main": "./dist/src/index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "dev": "bun --watch ./src/index.ts",
     "test": "jest --passWithNoTests",
     "test:watch": "jest --passWithNoTests --watch",
     "build": "tsc && tsc-alias",
-    "start": "node ./dist/src/index.js"
+    "start": "node ./dist/index.js"
   },
   "keywords": [],
   "author": "",
