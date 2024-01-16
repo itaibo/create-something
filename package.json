@@ -1,6 +1,6 @@
 {
   "name": "create-something",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A command to create something",
   "bin": "./dist/index.js",
   "main": "./dist/index.js",
