@@ -2,6 +2,7 @@
   "git init",
   "wget -O package.json -nc --quiet https://raw.githubusercontent.com/itaibo/create-something/main/templates/basic/package-template.json || true",
   "wget -O tsconfig.json -nc --quiet https://raw.githubusercontent.com/itaibo/create-something/main/templates/basic/tsconfig-template.json || true",
+  "wget -O tsconfig.build.json -nc --quiet https://raw.githubusercontent.com/itaibo/create-something/main/templates/basic/tsconfig.build-template.json || true",
   "wget -O jest.config.js -nc --quiet https://raw.githubusercontent.com/itaibo/create-something/main/templates/basic/jest.config-template.js || true",
   "wget -O .gitignore -nc --quiet https://raw.githubusercontent.com/itaibo/create-something/main/templates/basic/.gitignore-template || true",
   "mkdir -p src && touch src/index.ts",
