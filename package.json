@@ -1,6 +1,6 @@
 {
   "name": "create-something",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "A command to create something",
   "bin": "./dist/index.js",
   "main": "./dist/index.js",
@@ -18,5 +18,8 @@
   },
   "files": [
     "./dist/**/*"
-  ]
+  ],
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  }
 }

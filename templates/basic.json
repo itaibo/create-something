@@ -1,0 +1,8 @@
+[
+  "wget -O package.json https://raw.githubusercontent.com/itaibo/create-something/main/templates/basic/package-template.json",
+  "wget -O tsconfig.json https://raw.githubusercontent.com/itaibo/create-something/main/templates/basic/tsconfig-template.json",
+  "wget -O jest.config.js https://raw.githubusercontent.com/itaibo/create-something/main/templates/basic/jest.config-template.js",
+  "wget -O .gitignore https://raw.githubusercontent.com/itaibo/create-something/main/templates/basic/.gitignore-template",
+  "mkdir src && touch src/index.ts",
+  "mkdir tests && touch tests/index.test.ts"
+]
