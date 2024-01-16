@@ -1,8 +1,8 @@
 [
-  "wget -O package.json -nc https://raw.githubusercontent.com/itaibo/create-something/main/templates/basic/package-template.json",
-  "wget -O tsconfig.json -nc https://raw.githubusercontent.com/itaibo/create-something/main/templates/basic/tsconfig-template.json",
-  "wget -O jest.config.js -nc https://raw.githubusercontent.com/itaibo/create-something/main/templates/basic/jest.config-template.js",
-  "wget -O .gitignore -nc https://raw.githubusercontent.com/itaibo/create-something/main/templates/basic/.gitignore-template",
+  "wget -O package.json -nc --quiet https://raw.githubusercontent.com/itaibo/create-something/main/templates/basic/package-template.json || true",
+  "wget -O tsconfig.json -nc --quiet https://raw.githubusercontent.com/itaibo/create-something/main/templates/basic/tsconfig-template.json || true",
+  "wget -O jest.config.js -nc --quiet https://raw.githubusercontent.com/itaibo/create-something/main/templates/basic/jest.config-template.js || true",
+  "wget -O .gitignore -nc --quiet https://raw.githubusercontent.com/itaibo/create-something/main/templates/basic/.gitignore-template || true",
   "mkdir -p src && touch src/index.ts",
   "mkdir -p tests"
 ]
