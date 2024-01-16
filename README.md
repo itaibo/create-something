@@ -30,6 +30,8 @@ npm run test
 
 npm run test:watch
 
+npm run test:watch-all
+
 npm run build
 
 npm run start
