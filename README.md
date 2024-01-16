@@ -23,7 +23,7 @@ For this proof of concept, `something` includes the following:
 ## npm commands
 You can execute the following commands out-of-the-box:
 
-```sh
+```
 npm run dev
 
 npm run test
