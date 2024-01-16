@@ -12,13 +12,13 @@ And that's it! Now start coding!
 
 # What does it include?
 For this proof of concept, `something` includes the following:
+- New Git repo with basic `.gitignore`
 - Basic `package.json` with commands
 - TypeScript with a basic and strict configuration
 - `src` directory with an `index.ts` file waiting for you
-- Jest.js with basic configuration for testing and `tests` directory
+- Jest.js with basic configuration for testing and a `tests` directory
 - Types for Jest.js and Node
 - `@/*` path that works also in the tests and dist
-- Basic `.gitignore``
 
 ## npm commands
 You can execute the following commands out-of-the-box:
