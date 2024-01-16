@@ -1,0 +1,21 @@
+{
+  "name": "something",
+  "version": "0.0.0",
+  "description": "",
+  "main": "./dist/src/index.js",
+  "scripts": {
+    "dev": "bun --watch ./src/index.ts",
+    "test": "jest",
+    "build": "tsc && tsc-alias",
+    "start": "node ./dist/src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^29.5.11",
+    "@types/node": "^20.11.0",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.3.3"
+  }
+}
