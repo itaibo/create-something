@@ -4,7 +4,6 @@
 /dist
 /.vscode
 /.idea
-/bun.lockb
 
 # Ignore log and temporary files
 *.log
