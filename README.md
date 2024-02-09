@@ -35,6 +35,8 @@ npm run test:watch-all
 npm run build
 
 npm run start
+
+npm run format
 ```
 
 # Future
