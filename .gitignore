@@ -1,25 +1,4 @@
-# Ignore the following files and directories
-/node_modules
-/build
-/dist
-/.vscode
-/.idea
-/bun.lockb
-/test
-
-# Ignore log and temporary files
-*.log
-*.tmp
-
-# Ignore environment-specific files
-.env
-.env.local
-
-# Ignore compiled binaries and libraries
-*.pyc
-*.class
-*.jar
-
-# Ignore system and hidden files
-.DS_Store
-Thumbs.db
+node_modules/
+dist/
+output/
+demo

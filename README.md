@@ -1,44 +1,78 @@
-# npm create something
-A command to create something.
+# create-something
 
-# Usage
-Use this command whenever you want to start something new:
+A CLI to scaffold Turborepo monorepos with Next.js (shadcn) and Prisma.
 
-```sh
+## Usage
+
+```bash
+pnpm create something@latest
+```
+
+or
+
+```bash
 npm create something@latest
 ```
 
-And that's it! Now start coding!
+You'll be prompted for:
 
-# What does it include?
-For this proof of concept, `something` includes the following:
-- New Git repo with basic `.gitignore`
-- Basic `package.json` with commands
-- TypeScript with a basic and strict configuration
-- `src` directory with an `index.ts` file waiting for you
-- Jest.js with basic configuration for testing and a `tests` directory
-- Types for Jest.js and Node
-- `@/*` path that works also in the tests and dist
+- **Project name** — the directory name and package scope
+- **Next.js app** — includes a Next.js app with shadcn/ui, ESLint, and Docker support
+- **Prisma database** — includes a Prisma package with PostgreSQL, Docker Compose, and migrations
 
-## npm commands
-You can execute the following commands out-of-the-box:
+## What gets scaffolded
 
 ```
-npm run dev
-
-npm run test
-
-npm run test:watch
-
-npm run test:watch-all
-
-npm run build
-
-npm run start
-
-npm run format
+my-app/
+  apps/
+    web/              # Next.js app with shadcn/ui
+  packages/
+    db/               # Prisma client and schema
+    eslint-config/    # Shared ESLint configuration
+    typescript-config/ # Shared TypeScript configuration
+  .env
+  docker-compose.yml  # PostgreSQL container
+  Dockerfile          # Multi-stage build for Next.js
+  turbo.json
 ```
 
-# Future
-In the future, `something` will let you specify what do you want to create and
-prepare the basic folder structure and configurations (e.g. API, CLI, monorepo, ...).
+Components are removed cleanly if you opt out — skipping the database removes the `packages/db` directory, Docker Compose, and all related scripts.
+
+## Development
+
+```bash
+git clone https://github.com/itaibo/create-something.git
+cd create-something
+pnpm install
+pnpm build
+```
+
+### Building templates
+
+Templates are pre-built archives stored in GitHub Releases. The CLI downloads these at runtime instead of scaffolding from scratch. This makes creating something super fast.
+
+To rebuild:
+
+```bash
+pnpm build-template pnpm   # or npm
+```
+
+This runs all scaffolding steps (Turborepo, shadcn, Prisma, Prettier), strips build artifacts, replaces the project name with a `{{projectName}}` placeholder, and outputs to `output/`.
+
+CI automatically builds and uploads templates for both pnpm and npm on push to `main`.
+
+### Project structure
+
+```
+src/
+  index.ts            # CLI entry point
+  build-template.ts   # Template builder entry point
+  types.ts            # Shared types and constants
+  generators/         # Output generators (Dockerfile, README, removal logic)
+  steps/              # Template builder steps (monorepo, nextjs, database, prettier)
+  utils/              # Shared utilities (exec, fs helpers, download, template replacement)
+```
+
+## License
+
+MIT © [Iñigo Taibo](https://github.com/itaibo)

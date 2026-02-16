@@ -1,0 +1,42 @@
+name: Build Templates
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  build-template:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        pm: [pnpm, npm]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: pnpm install
+
+      - run: pnpm build
+
+      - name: Build template for ${{ matrix.pm }}
+        run: node dist/build-template.js ${{ matrix.pm }}
+
+      - name: Create archive
+        run: tar czf template-${{ matrix.pm }}.tar.gz -C output .
+
+      - name: Upload to latest release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: templates
+          name: Templates
+          files: template-${{ matrix.pm }}.tar.gz
+          make_latest: true
