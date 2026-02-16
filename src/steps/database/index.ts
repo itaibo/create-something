@@ -100,7 +100,7 @@ export function setupDatabase(dir: string, pm: PackageManager) {
   editJson(join(dir, "package.json"), (pkg) => {
     pkg.scripts = pkg.scripts || {};
     pkg.scripts["dev"] =
-      "docker compose up -d postgres && dotenv -e .env -- turbo run dev";
+      "docker compose up -d postgres && trap 'docker compose down' EXIT && dotenv -e .env -- turbo run dev";
     pkg.scripts["db:generate"] = "dotenv -e .env -- turbo db:generate";
     pkg.scripts["db:push"] = "dotenv -e .env -- turbo db:push";
     pkg.scripts["db:migrate"] = "dotenv -e .env -- turbo db:migrate";
