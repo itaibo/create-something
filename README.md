@@ -5,13 +5,13 @@ A CLI to scaffold Turborepo monorepos with Next.js (shadcn) and Prisma.
 ## Usage
 
 ```bash
-pnpm create something@latest
+pnpm dlx create-something@latest
 ```
 
 or
 
 ```bash
-npm create something@latest
+npx create-something@latest
 ```
 
 You'll be prompted for:
