@@ -1,4 +1,4 @@
-import { cpSync, writeFileSync } from "fs";
+import { cpSync, existsSync, writeFileSync } from "fs";
 import { join } from "path";
 import prompts from "prompts";
 
@@ -24,6 +24,10 @@ async function main() {
         name: "name",
         message: "Project name",
         initial: "my-app",
+        validate: (name: string) =>
+          existsSync(join(process.cwd(), name))
+            ? `A folder named "${name}" already exists`
+            : true,
       },
       {
         type: "confirm",
