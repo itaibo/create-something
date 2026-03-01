@@ -98,9 +98,11 @@ async function main() {
   run(`${pm} install`, projectDir);
 
   if (isAvailable("git")) {
-    run("git init", projectDir);
-    run("git add -A", projectDir);
-    run('git commit -m "Initial commit from create-something"', projectDir);
+    run(
+      'git init && git add -A && git commit -m "Initial commit from create-something"',
+      projectDir,
+      true,
+    );
   }
 
   console.log(`\nDone! cd ${dir} to get started.`);
