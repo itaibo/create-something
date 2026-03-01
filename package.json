@@ -5,6 +5,7 @@
   "type": "module",
   "bin": "./dist/index.js",
   "main": "./dist/index.js",
+  "repository": "github:ossly/create-something",
   "files": [
     "dist"
   ],

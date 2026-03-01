@@ -9,7 +9,7 @@ import {
 import { generateReadme } from "./generators/readme.js";
 import { removeDatabase, removeNextApp } from "./generators/remove.js";
 import { downloadAndExtract } from "./utils/download.js";
-import { run } from "./utils/exec.js";
+import { isAvailable, run } from "./utils/exec.js";
 import { PLACEHOLDER, replaceInAllFiles } from "./utils/template.js";
 
 async function main() {
@@ -96,6 +96,12 @@ async function main() {
 
   console.log("Installing dependencies...");
   run(`${pm} install`, projectDir);
+
+  if (isAvailable("git")) {
+    run("git init", projectDir);
+    run("git add -A", projectDir);
+    run('git commit -m "Initial commit from create-something"', projectDir);
+  }
 
   console.log(`\nDone! cd ${dir} to get started.`);
 }
