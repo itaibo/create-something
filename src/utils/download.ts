@@ -6,7 +6,7 @@ import { pipeline } from "stream/promises";
 import { PackageManager } from "../types.js";
 import { run } from "./exec.js";
 
-const REPO = "itaibo/create-something";
+const REPO = "ossly/create-something";
 
 export async function downloadAndExtract(
   pm: PackageManager,

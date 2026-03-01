@@ -5,13 +5,13 @@ A CLI to scaffold Turborepo monorepos with Next.js (shadcn) and Prisma.
 ## Usage
 
 ```bash
-pnpm dlx create-something@latest
+pnpm create something@latest
 ```
 
 or
 
 ```bash
-npx create-something@latest
+npm create something@latest
 ```
 
 You'll be prompted for:
@@ -41,7 +41,7 @@ Components are removed cleanly if you opt out — skipping the database removes 
 ## Development
 
 ```bash
-git clone https://github.com/itaibo/create-something.git
+git clone https://github.com/ossly/create-something.git
 cd create-something
 pnpm install
 pnpm build
