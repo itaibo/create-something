@@ -7,7 +7,7 @@ export function generateReadme(
   projectDir: string,
   projectName: string,
   pm: PackageManager,
-  options: { hasNextjs: boolean; hasDatabase: boolean },
+  options: { hasNextjs: boolean; hasMobile: boolean; hasDatabase: boolean },
 ) {
   const runCmd = getRunCmd(pm);
 
@@ -20,8 +20,11 @@ export function generateReadme(
   content += `| Command | Description |\n`;
   content += `| --- | --- |\n`;
 
-  if (options.hasNextjs) {
+  if (options.hasNextjs || options.hasMobile) {
     content += `| \`${runCmd} dev\` | Start development server |\n`;
+  }
+
+  if (options.hasNextjs) {
     content += `| \`${runCmd} build\` | Build for production |\n`;
   }
 

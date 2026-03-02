@@ -4,6 +4,7 @@ import { removeBuildArtifacts } from "./generators/remove.js";
 import { setupDatabase } from "./steps/database/index.js";
 import { createMonorepo } from "./steps/monorepo/index.js";
 import { setupPrettier } from "./steps/prettier/index.js";
+import { setupMobile } from "./steps/mobile/index.js";
 import { setupNextjs } from "./steps/nextjs/index.js";
 import { PackageManager, getDlx } from "./types.js";
 import { PLACEHOLDER, replaceInAllFiles } from "./utils/template.js";
@@ -27,6 +28,7 @@ process.chdir(outputDir);
 createMonorepo(buildName, pm, dlx);
 setupPrettier(buildName);
 setupNextjs(buildName, pm, dlx);
+setupMobile(buildName, pm, dlx);
 setupDatabase(buildName, pm);
 
 // Remove build artifacts (node_modules, .next, etc.) recursively

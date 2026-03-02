@@ -7,6 +7,7 @@ import { editJson } from "../utils/fs.js";
 const BUILD_ARTIFACTS = [
   "node_modules",
   ".next",
+  ".expo",
   "package-lock.json",
   "pnpm-lock.yaml",
 ];
@@ -25,6 +26,10 @@ export function removeBuildArtifacts(dir: string) {
 
 export function removeNextApp(dir: string) {
   rmSync(join(dir, "apps", "web"), { recursive: true, force: true });
+}
+
+export function removeMobileApp(dir: string) {
+  rmSync(join(dir, "apps", "mobile"), { recursive: true, force: true });
 }
 
 export function removeDatabase(dir: string) {

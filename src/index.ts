@@ -7,7 +7,11 @@ import {
   generateDockerignore,
 } from "./generators/docker-files.js";
 import { generateReadme } from "./generators/readme.js";
-import { removeDatabase, removeNextApp } from "./generators/remove.js";
+import {
+  removeDatabase,
+  removeMobileApp,
+  removeNextApp,
+} from "./generators/remove.js";
 import { downloadAndExtract } from "./utils/download.js";
 import { isAvailable, run } from "./utils/exec.js";
 import { PLACEHOLDER, replaceInAllFiles } from "./utils/template.js";
@@ -37,6 +41,12 @@ async function main() {
       },
       {
         type: "confirm",
+        name: "mobile",
+        message: "Include Expo mobile app?",
+        initial: true,
+      },
+      {
+        type: "confirm",
         name: "database",
         message: "Include Prisma database?",
         initial: true,
@@ -56,6 +66,7 @@ async function main() {
   const dir = response.name;
   const cwd = process.cwd();
   const hasNextjs = response.nextjs ?? true;
+  const hasMobile = response.mobile ?? true;
   const hasDatabase = response.database ?? true;
 
   const templateFlagIdx = process.argv.indexOf("--local-template");
@@ -77,11 +88,15 @@ async function main() {
     removeNextApp(projectDir);
   }
 
+  if (!hasMobile) {
+    removeMobileApp(projectDir);
+  }
+
   if (!hasDatabase) {
     removeDatabase(projectDir);
   }
 
-  generateReadme(projectDir, dir, pm, { hasNextjs, hasDatabase });
+  generateReadme(projectDir, dir, pm, { hasNextjs, hasMobile, hasDatabase });
 
   if (hasNextjs) {
     writeFileSync(
