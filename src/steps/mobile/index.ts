@@ -5,11 +5,7 @@ import { PackageManager, getWorkspaceDep } from "../../types.js";
 import { run } from "../../utils/exec.js";
 import { editJson } from "../../utils/fs.js";
 
-export function setupMobile(
-  dir: string,
-  pm: PackageManager,
-  dlx: string,
-) {
+export function setupMobile(dir: string, pm: PackageManager, dlx: string) {
   const appsDir = join(dir, "apps");
 
   run(
@@ -20,7 +16,6 @@ export function setupMobile(
   const mobileDir = join(appsDir, "mobile");
 
   // Remove files managed by the monorepo root
-  rmSync(join(mobileDir, ".gitignore"), { force: true });
   rmSync(join(mobileDir, "README.md"), { force: true });
   rmSync(join(mobileDir, "pnpm-lock.yaml"), { force: true });
   rmSync(join(mobileDir, "package-lock.json"), { force: true });
