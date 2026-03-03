@@ -114,7 +114,7 @@ async function main() {
   writeFileSync(join(projectDir, ".env.example"), env);
 
   console.log("Installing dependencies...");
-  run(`${pm} install`, projectDir);
+  run(`${pm} install`, projectDir, true);
 
   if (isAvailable("git")) {
     run(
