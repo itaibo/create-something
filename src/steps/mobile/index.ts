@@ -9,7 +9,7 @@ export function setupMobile(dir: string, pm: PackageManager, dlx: string) {
   const appsDir = join(dir, "apps");
 
   run(
-    `${dlx} create-expo-app@latest --template default@sdk-55 mobile`,
+    `${dlx} create-expo-app@latest mobile --template default@sdk-55 --yes --no-install`,
     appsDir,
   );
 

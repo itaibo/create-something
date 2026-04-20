@@ -12,12 +12,21 @@ const BUILD_ARTIFACTS = [
   "pnpm-lock.yaml",
 ];
 
+function removePath(path: string) {
+  rmSync(path, {
+    recursive: true,
+    force: true,
+    maxRetries: 5,
+    retryDelay: 100,
+  });
+}
+
 export function removeBuildArtifacts(dir: string) {
   const entries = readdirSync(dir);
   for (const entry of entries) {
     const fullPath = join(dir, entry);
     if (BUILD_ARTIFACTS.includes(entry)) {
-      rmSync(fullPath, { recursive: true, force: true });
+      removePath(fullPath);
     } else if (statSync(fullPath).isDirectory()) {
       removeBuildArtifacts(fullPath);
     }
@@ -25,16 +34,20 @@ export function removeBuildArtifacts(dir: string) {
 }
 
 export function removeNextApp(dir: string) {
-  rmSync(join(dir, "apps", "web"), { recursive: true, force: true });
+  removePath(join(dir, "apps", "web"));
 }
 
 export function removeMobileApp(dir: string) {
-  rmSync(join(dir, "apps", "mobile"), { recursive: true, force: true });
+  removePath(join(dir, "apps", "mobile"));
 }
 
 export function removeDatabase(dir: string) {
-  rmSync(join(dir, "packages", "db"), { recursive: true, force: true });
-  rmSync(join(dir, "docker-compose.yml"), { force: true });
+  removePath(join(dir, "packages", "db"));
+  rmSync(join(dir, "docker-compose.yml"), {
+    force: true,
+    maxRetries: 5,
+    retryDelay: 100,
+  });
 
   editJson(join(dir, "turbo.json"), (turbo) => {
     for (const script of DB_SCRIPTS) {

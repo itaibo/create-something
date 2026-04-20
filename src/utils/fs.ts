@@ -20,6 +20,7 @@ export function editJson(
 }
 
 export function writeText(path: string, content: string) {
+  mkdirSync(dirname(path), { recursive: true });
   writeFileSync(path, content);
 }
 
