@@ -53,6 +53,9 @@ export function setupNextjs(
   // Remove .gitignore
   rmSync(join(webDir, ".gitignore"), { force: true });
 
+  // Remove nested git metadata from the generated app so the root project can initialize cleanly.
+  rmSync(join(webDir, ".git"), { recursive: true, force: true });
+
   // tsconfig.json
   const tsconfig = readFileSync(
     templatePath(import.meta.url, "tsconfig.json"),
