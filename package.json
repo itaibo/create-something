@@ -22,7 +22,8 @@
     "build": "tsc && node scripts/postbuild.js",
     "prepare": "pnpm build",
     "format": "prettier --write src",
-    "build-template": "node dist/build-template.js"
+    "build-template": "node dist/build-template.js",
+    "prepack": "pnpm build"
   },
   "author": "Iñigo Taibo <itaibo@hey.com>",
   "license": "MIT",
